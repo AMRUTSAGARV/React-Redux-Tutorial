@@ -73,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 <!-- Context API is a React API that can solve a lot of problems that modern applications face related to state management and how they're passing state to their components. -->
+
+<!-- 
+if i made a state inside the login component i cannot access it inside profile component  (redux is what make sit possible) -->
