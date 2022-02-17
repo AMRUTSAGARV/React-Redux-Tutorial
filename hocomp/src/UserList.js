@@ -2,7 +2,9 @@ import React from "react";
 import HOC from "./HOC";
 
 const UsersList = ({ data }) => {
+  
   let renderUsers = data.map((user) => {
+  
     return (
       <div key={user.id}>
         <p>

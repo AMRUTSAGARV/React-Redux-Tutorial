@@ -45,4 +45,5 @@ const HOC = (WrappedComponenet, entity) => {
   };
 };
 
+
 export default HOC;
