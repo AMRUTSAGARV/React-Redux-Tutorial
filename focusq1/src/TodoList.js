@@ -1,14 +1,16 @@
-import React from 'react';
-
-export default function TodoList({todolist}) {
+import React from "react";
 
 
-    return (<div>
+export default function TodoList({todo}) {
+    return (
+        <div>
             {
-                todolist.map((todo,index) => 
-                <div key={index}>
-                    <h4>{todo}</h4>
-                </div>)
+                todo.map((todo, index) => (
+                    <li key ={index}>
+                            {todo}
+                    </li>
+                ))
             }
-        </div>)
+        </div>
+    )
 }
