@@ -3,20 +3,20 @@ import './App.css';
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import Signin from "./components/Signin";
-import {BrowserRouter, Route } from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 export default function App() {
-  return (
+  return(
     <div className="App">
-     
-     <BrowserRouter>
-     
-     <Navigation />
-     <Route path="/" exact component={Home} />
-     <Route path="/signin" exact component={Signin}/>
-     
-     </BrowserRouter>
+      <BrowserRouter>
+      <Navigation />
+      <Routes>
+      <Route path="/" exact component={Home}/>
+      <Route path="/signin" exact element={<Signin />}/>
+      </Routes>
+      </BrowserRouter>
+
     </div>
-  );
+  )
 }
 
