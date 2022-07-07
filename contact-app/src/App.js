@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import { Switch, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import AddContact from "./components/AddContact";
+import EditContact from "./components/EditContact";
 
 function App() {
   return (
@@ -15,8 +17,12 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={() => <Home />}></Route>
-        <Route path="/add">iam add component</Route>
-        <Route path="/edit/:id"> iam edit component</Route>
+        <Route path="/add">
+          <AddContact />
+        </Route>
+        <Route path="/edit/:id">
+          <EditContact />
+        </Route>
       </Switch>
     </div>
   );
