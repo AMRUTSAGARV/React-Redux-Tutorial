@@ -7,19 +7,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { createStore } from "redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import contactReducer from "../redux/reducers/contactReducer";
+import contactReducer from "./redux/reducers/contactReducer";
 import { Provider } from "react-redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(contactReducer, composeWithDevtools());
+const store = createStore(contactReducer, composeWithDevTools());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider>
-    <React.StrictMode>
-      <Router>
-        <App />
-      </Router>
-    </React.StrictMode>
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
   </Provider>
 );
 
