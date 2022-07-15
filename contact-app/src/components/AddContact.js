@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AddContact = () => {
@@ -9,6 +9,8 @@ const AddContact = () => {
   const [number, setNumber] = useState("");
 
   const contacts = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +32,15 @@ const AddContact = () => {
     if (checkNumber) {
       return toast.error("This number already exists!");
     }
+    const data = {
+      id: contacts[contacts.length - 1].id + 1,
+      name,
+      email,
+      number,
+    };
+    dispatch({ type: "ADD_CONTACT", payload: data });
+    toast.success("Student added succesfully");
+    history.push("/");
   };
 
   return (
