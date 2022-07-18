@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 
 const EditContact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState("");
   const { id } = useParams();
 
   const contacts = useSelector((state) => state);
   const currentContact = contacts.find(
     (contact) => contact.id === parseInt(id)
   );
+
+  useEffect(() => {
+    if (currentContact) {
+      setName(currentContact.name);
+      setEmail(currentContact.email);
+      setNumber(currentContact.number);
+    }
+  }, [currentContact]);
 
   return (
     <div className="container">
